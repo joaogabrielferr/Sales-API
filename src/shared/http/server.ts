@@ -1,7 +1,9 @@
+import 'reflect-metadata';
 import express, { NextFunction, Request, Response } from 'express';
 import cors from 'cors';
 import routes from './routes';
-import AppError from '@shared/errors/AppError';
+import AppError from '../errors/AppError';
+import '../typeorm';
 
 const app = express();
 
@@ -27,8 +29,7 @@ app.use((error : Error,
       })
     }
 
-    //if error if not an instance of AppError, then its an unknown errors
-
+    //if error if not an instance of AppError, then its an unknown error
     return response.status(500).json({
       status: 'error',
       message: 'Internal server error'
