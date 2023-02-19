@@ -11,7 +11,7 @@ export default class ListProductService{
 
     const productsRepository = getCustomRepository(ProductRepository);
 
-    const products = await  productsRepository.find();
+    const products = await productsRepository.find();
 
     return products;
 

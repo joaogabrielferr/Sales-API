@@ -8,20 +8,20 @@ interface IRequest{
 }
 
 //each service has only one responsability
-export default class ShowProductService{
+export default class DeleteProductService{
 
-  public async execute({id} : IRequest) : Promise<Product>{
+  public async execute({id} : IRequest) : Promise<void>{
 
     const productsRepository = getCustomRepository(ProductRepository);
 
-    const product = await productsRepository.findOne(id);
+    const product = await  productsRepository.findOne(id);
 
     if(!product)
     {
       throw new AppError('Product not found',404);
     }
 
-    return product;
+    await productsRepository.remove(product);
 
   }
 

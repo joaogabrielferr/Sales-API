@@ -19,7 +19,7 @@ export default class CreateProductService{
 
     //business rule: there can't be two products with the same name
     //checking if there is an product already registered with given name
-    const ProductExists = await  productsRepository.findByName(name);
+    const ProductExists = await productsRepository.findByName(name);
 
     if(ProductExists){
       throw new AppError('There is already one product with this name');
