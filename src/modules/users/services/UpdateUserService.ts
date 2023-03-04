@@ -18,14 +18,16 @@ export default class UpdateUserService{
 
     const userRepo = getCustomRepository(UserRepository);
 
-    const user : User | undefined = await userRepo.findByEmail(email);
+    const user : User | undefined = await userRepo.findByID(id);
 
     if(!user)
     {
       throw new AppError('User not found',404);
     }
 
-    if(user && user.id !== id)
+    const userEmail : User | undefined = await userRepo.findByEmail(email);
+
+    if(userEmail && userEmail.id !== id)
     {
       throw new AppError('There is already a user with this email');
     }
