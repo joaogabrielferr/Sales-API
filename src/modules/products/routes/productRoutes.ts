@@ -1,5 +1,5 @@
 import { Router } from "express";
-import ProductsController from "../controllers/ProductsController";
+import ProductsController from "src/modules/products/controllers/ProductsController";
 
 const productsRouter = Router();
 
@@ -16,4 +16,3 @@ productsRouter.put('/:id',productsController.update);
 productsRouter.delete('/:id',productsController.delete);
 
 export default productsRouter;
-

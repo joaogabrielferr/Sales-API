@@ -1,7 +1,7 @@
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 //an entity maps a class to a database table
-@Entity('product')
+@Entity({name: 'products'})
 class Product{
 
   @PrimaryGeneratedColumn('uuid')
