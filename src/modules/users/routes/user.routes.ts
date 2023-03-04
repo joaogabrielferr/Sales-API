@@ -18,3 +18,5 @@ celebrate({
   }
 })
 ,userController.create);
+
+export default userRouter;
