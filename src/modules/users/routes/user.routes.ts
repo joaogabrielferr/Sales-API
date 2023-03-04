@@ -9,7 +9,7 @@ const userController = new UsersController();
 
 userRouter.get('/',userController.index);
 
-userRouter.post('/user',
+userRouter.post('/',
 celebrate({
   [Segments.BODY] :{
     name : Joi.string().required(),
