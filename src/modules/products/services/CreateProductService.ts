@@ -11,7 +11,7 @@ interface IRequest{
 };
 
 //each service has only one responsability
-export default class CreateProductService{
+export default class  CreateProductService{
 
   public async execute({name,price,quantity} : IRequest) : Promise<Product>{
 
