@@ -1,0 +1,1 @@
+api created using typescript, node.js, typeorm, redis, docker and friends
