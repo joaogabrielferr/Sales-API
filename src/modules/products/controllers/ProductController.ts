@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import ProductService from '../services/ProductService';
+import AppError from '@shared/errors/AppError';
 
 export default class ProductController {
   public async index(request: Request, response: Response) {
@@ -13,6 +14,10 @@ export default class ProductController {
 
     const service = new ProductService();
     const product = await service.showProduct({ id });
+
+    if (!product) {
+      throw new AppError('No product found', 404);
+    }
 
     return response.json(product);
   }
@@ -43,6 +48,6 @@ export default class ProductController {
     const service = new ProductService();
     await service.deleteProduct({ id });
 
-    return response.status(204);
+    return response.status(204).json([]);
   }
 }
